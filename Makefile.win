@@ -1,0 +1,43 @@
+# Project: Project1
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main1.o Samples.o Cluster.o KMeans.o Sample.o main.o
+LINKOBJ  = main1.o Samples.o Cluster.o KMeans.o Sample.o main.o
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -L"C:/Program Files/Python312/Lib" -L"C:/Users/mehmetaligok/AppData/Roaming/Python/Python312/site-packages/numpy/core/lib"
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/mehmetaligok/AppData/Roaming/Python/Python312/site-packages/numpy/core/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"C:/Users/mehmetaligok/AppData/Roaming/Python/Python312/site-packages/numpy/core/include"
+BIN      = Project1.exe
+CXXFLAGS = $(CXXINCS) -DPy_BUILD_CORE -I"C:\Program Files\Python312\include" -L"C:\Program Files\Python312\Lib" -I"C:\Users\mehmetaligok\AppData\Roaming\Python\Python312\site-packages"
+CFLAGS   = $(INCS) -DPy_BUILD_CORE -I"C:\Program Files\Python312\include" -L"C:\Program Files\Python312\Lib" -I"C:\Users\mehmetaligok\AppData\Roaming\Python\Python312\site-packages"
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main1.o: main1.cpp
+	$(CPP) -c main1.cpp -o main1.o $(CXXFLAGS)
+
+Samples.o: Samples.cpp
+	$(CPP) -c Samples.cpp -o Samples.o $(CXXFLAGS)
+
+Cluster.o: Cluster.cpp
+	$(CPP) -c Cluster.cpp -o Cluster.o $(CXXFLAGS)
+
+KMeans.o: KMeans.cpp
+	$(CPP) -c KMeans.cpp -o KMeans.o $(CXXFLAGS)
+
+Sample.o: Sample.cpp
+	$(CPP) -c Sample.cpp -o Sample.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
